@@ -1,0 +1,15 @@
+import {createContext, useContext} from "react";
+
+// argument is optional to provide some initial data variables and methods
+export const ThemeContext = createContext({
+    themeMode: "light",
+    darkTheme: () => {},
+    lightTheme: () => {},
+})
+
+export const ThemeProvider = ThemeContext.Provider
+
+// custom Hook
+export default function useTheme() {
+    return useContext(ThemeContext)
+}
