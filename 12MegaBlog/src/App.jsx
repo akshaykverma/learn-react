@@ -1,16 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import {useDispatch} from 'react-redux'
 import './App.css'
+import authService from './appwrite/auth'
+import {login, logout} from './store/authSlice'
+import { Footer, Header } from './components'
+import { Outlet } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
+  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch();
 
-  return (
-    <>
-      <h1>Appwrite</h1>
-    </>
-  )
+
+  // on the component load check if the user is logged in or not
+  useEffect(() => {
+    authService.getCurrentUser()
+    .then((userData) => {
+      if (userData) {
+        dispatch(login(userData));
+      }
+      else {
+        dispatch(logout());
+      }
+    })
+    // finally will always be called at the end even if there is any error
+    .finally(() => setLoading(false))
+  }, [])
+  
+
+  // means if not loading execute as normal flow
+  return !loading ? (
+    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+      <div className='w-full block'>
+        <Header />
+          <main>
+            {/* <Outlet /> */}
+          </main>
+        <Footer />
+      </div>
+    </div>
+    // this can be the case if loading is still happening can add loading icon
+  ) : 
+  <div class="loader">
+    <div class="loader-wheel"></div>
+    <div class="loader-text"></div>
+  </div> 
 }
 
 export default App
