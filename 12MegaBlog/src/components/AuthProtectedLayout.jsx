@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 
 
-export default function AuthProtectedLayout({
+function AuthProtectedLayout({
     children, 
     authentication = true
 }) {
@@ -36,3 +36,5 @@ export default function AuthProtectedLayout({
     loader ? <h1>Loading...</h1> : <>{children}</>
   )
 }
+
+export default AuthProtectedLayout;

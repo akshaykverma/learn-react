@@ -2,7 +2,7 @@ import React from 'react'
 import {Editor} from '@tinymce/tinymce-react'
 import { Controller } from 'react-hook-form'
 
-
+// Real Time Editor
 export default function RTE({   
     name,
     control,

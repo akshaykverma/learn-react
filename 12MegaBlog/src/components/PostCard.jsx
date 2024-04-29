@@ -18,7 +18,7 @@ function PostCard({
                 if we would have done so then we could have used the store
                 to get values */}
                 <img src={appwriteService.getFilePreview(featuredImage)} 
-                    alt="{title}"
+                    alt={title}
                     className='rounded-xl'/>
             </div>
             <h2 className='text-xl font-bold'>{title}</h2>

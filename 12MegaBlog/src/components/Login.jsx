@@ -64,7 +64,7 @@ function Login() {
 
                         {/* Email Field */}
                         <Input 
-                            lable="Email: "
+                            label="Email: "
                             placeholder="Enter your email"
                             type="email"
                             {...register("email", {
@@ -79,7 +79,7 @@ function Login() {
 
                         {/* Password Field */}
                         <Input 
-                            lable="Password: "
+                            label="Password: "
                             placeholder="Enter password"
                             type="password"
                             {...register("password", {

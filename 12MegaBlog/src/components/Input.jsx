@@ -2,7 +2,7 @@ import React, {useId} from 'react'
 
 // forwardRef lets your component expose a DOM node to parent component with a ref.
 const Input = React.forwardRef(function Input({
-    lable,
+    label,
     type = "text",
     className = "",
     ...props
@@ -14,10 +14,10 @@ const Input = React.forwardRef(function Input({
   return (
     <div className='w-full'>
         {
-            lable && 
-                <lable className="block mb-1" htmlFor={uniqueId}>
-                    {lable}
-                </lable>
+            label && 
+                <label className="block mb-1" htmlFor={uniqueId}>
+                    {label}
+                </label>
         }
         <input 
             type={type} 

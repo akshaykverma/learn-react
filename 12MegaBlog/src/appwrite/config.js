@@ -17,7 +17,7 @@ export class DBService {
     }
 
     // create post 
-    async createPost({title, slug, content, featureImage, status, userId}) {
+    async createPost({title, slug, content, featuredImage, status, userId}) {
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId, 
@@ -26,7 +26,7 @@ export class DBService {
                 {
                     title,
                     content,
-                    featureImage,
+                    featuredImage,
                     status,
                     userId
                 }
@@ -37,7 +37,7 @@ export class DBService {
     }
 
     // update post 
-    async updatePost(slug, {title, content, featureImage, status}) {
+    async updatePost(slug, {title, content, featuredImage, status}) {
         try {
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId, 
@@ -46,7 +46,7 @@ export class DBService {
                 {
                     title,
                     content,
-                    featureImage,
+                    featuredImage,
                     status
                 }
             );
@@ -128,12 +128,11 @@ export class DBService {
     }
 
     // get file preview
-    async getFilePreview(fileId) {    
+    getFilePreview(fileId) {    
         return this.bucket.getFilePreview(
             conf.appwriteBucketId, 
             fileId
         );
-    
     }
 }
 

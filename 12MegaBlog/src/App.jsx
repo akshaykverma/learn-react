@@ -34,17 +34,17 @@ function App() {
       <div className='w-full block'>
         <Header />
           <main>
-            {/* <Outlet /> */}
+            <Outlet />
           </main>
         <Footer />
       </div>
     </div>
     // this can be the case if loading is still happening can add loading icon
-  ) : 
-  <div class="loader">
-    <div class="loader-wheel"></div>
-    <div class="loader-text"></div>
-  </div> 
+  ) : null 
+  // <div className="loader">
+  //   <div className="loader-wheel"></div>
+  //   <div className="loader-text"></div>
+  // </div> 
 }
 
 export default App
