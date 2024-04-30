@@ -89,9 +89,9 @@ export default function PostForm({ post }) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <textarea name="content" rows="4" cols="50" {...register("content")}/>
+                {/* <textarea name="content" rows="4" cols="50" {...register("content")}/> */}
                     
-                {/* <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} /> */}
+                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="w-1/3 px-2">
                 <Input

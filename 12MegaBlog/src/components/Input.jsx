@@ -7,6 +7,7 @@ const Input = React.forwardRef(function Input({
     className = "",
     ...props
    // ref is the reference to the parent component
+   // this is also used by react-hook-forms
 }, ref) {
 
     const uniqueId = useId();
@@ -26,6 +27,8 @@ const Input = React.forwardRef(function Input({
             // attaching the parent ref to this input
             // so that when we make any changes to ref 
             // it will be reflected in the parent
+
+            // this is also used by react-hook-forms
             ref={ref}
             {...props}
             id = {uniqueId}
