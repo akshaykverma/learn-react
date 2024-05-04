@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import appwrriteService from '../appwrite/config'
 import { Container, PostCard } from '../components'
+import { useSelector } from 'react-redux'
 
 function HomePage() {
   
     const [posts, setPosts] = useState([])
+    const [getPostsRequestStatus, setGetPostsRequestStatus] = useState('pending')
+    const loginStatus = useSelector(state => state.auth.status);
+    
   
     useEffect(() => {
       
@@ -13,17 +17,21 @@ function HomePage() {
                 if (resPosts) {
                     setPosts(resPosts.documents);
                 }
+                setGetPostsRequestStatus('success');
             })
     }, [])
-  
-    if (posts.length === 0) {
+    
+    if (!loginStatus) {
+        return <div>Login to read posts</div>
+    }
+    else if (posts.length === 0) {
         return (
             <div className="w-full py-8 mt-4 text-center">
                 <Container>
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
                             <h1 className="text-2xl font-bold hover:text-gray-500">
-                                Login to read posts
+                                {getPostsRequestStatus === 'pending' ? 'Loading...' : 'No Posts available'}
                             </h1>
                         </div>
                     </div>
