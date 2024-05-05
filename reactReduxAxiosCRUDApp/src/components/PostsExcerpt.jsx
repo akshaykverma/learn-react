@@ -3,8 +3,13 @@ import PostAuthor from './PostAuthor';
 import TimeAgo from './TimeAgo';
 import ReactionsButtons from './ReactionsButton';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectPostById } from '../features/posts/postsSlice';
 
-const PostsExcerpt = ({ post }) => {
+// use let for memoization
+const PostsExcerpt = ({ postId }) => {
+
+    const post = useSelector(state => selectPostById(state, postId));
 
     return (
         <article>
@@ -24,4 +29,8 @@ const PostsExcerpt = ({ post }) => {
         </article>
     )
 }
+
+// one way to optimize the component is to use memo
+//PostsExcerpt = React.memo(PostsExcerpt);
+
 export default PostsExcerpt
