@@ -1,17 +1,24 @@
 import {createSlice, nanoid} from '@reduxjs/toolkit'
 
-// store's initial state / data which can be anything
+/**
+ * Redux Toolkit Initial State
+ * 
+ * Defines the shape and default values of this slice's state
+ * Can contain any data type: objects, arrays, primitives
+ */
 const initialState = {
+    // Array of todo items - main application data
     todos: [{
         id: 1,
         text: "Hello world"
     }],
-    // used to toggle between add or update todo button and its functionality
-    // true -> add 
+    
+    // UI state: controls add/update button behavior
+    // true = add mode, false = update mode
     toggleAddUpdateBtn: true,
 
-    //refers to the data sent from Todos to AddTodo component
-    // data set is an updated todo data
+    // Temporary storage for todo being edited
+    // Holds todo data when switching to update mode
     updatedTodoData: {}
 }
 
@@ -38,29 +45,42 @@ const initialState = {
  * to actions sent to the store3.
  */
 export const todoSlice = createSlice({
-    name: 'todo',
+    name: 'todo', // Slice name - used in action types
     initialState,
     reducers: {
+        // Add new todo to the list
         addTodo: (state, action) => {
             const todo = {
-                id: nanoid(),
-                text: action.payload
+                id: nanoid(), // Generate unique ID
+                text: action.payload // Todo text from component
             }
+            // RTK uses Immer - direct mutation is safe here
             state.todos.push(todo);
         },
+        
+        // Remove todo by ID
         removeTodo: (state, action) => {
+            // Filter out todo with matching ID
             state.todos = state.todos.filter(todo => todo.id !== action.payload);
         },
+        
+        // Update existing todo
         updateTodo: (state, action) => {
-            state.todos =  state.todos.map(todo => (todo.id === action.payload.id ? action.payload: todo));
+            // Replace todo with same ID, keep others unchanged
+            state.todos = state.todos.map(todo => 
+                todo.id === action.payload.id ? action.payload : todo
+            );
         },
+        
+        // Toggle between add/update modes
         toggleAddUpdateBtnState: (state, action) => {
             state.toggleAddUpdateBtn = !state.toggleAddUpdateBtn;
         },
+        
+        // Store todo data for editing
         setDataToUpdateTodo(state, action) {
             state.updatedTodoData = action.payload;
         }
-
     }
 })
 

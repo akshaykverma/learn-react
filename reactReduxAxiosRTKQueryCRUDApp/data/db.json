@@ -312,9 +312,7 @@
       "date": "2024-05-07T04:40:14.887Z"
     },
     {
-      "userId": 2,
       "id": "15",
-      "title": "eveniet quod temporibus",
       "body": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae",
       "reactions": {
         "thumbsUp": 2,
@@ -322,19 +320,24 @@
         "heart": 0,
         "rocket": 0,
         "coffee": 0
-      }
-    },
-    {
-      "userId": 2,
-      "id": "16",
-      "title": "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio",
-      "body": "suscipit nam nisi quo aperiam aut\nasperiores eos fugit maiores voluptatibus quia\nvoluptatem quis ullam qui in alias quia est\nconsequatur magni mollitia accusamus ea nisi voluptate dicta"
+      },
+      "title": "eveniet quod temporibus",
+      "content": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae",
+      "userId": "2",
+      "date": "2024-05-13T14:33:14.179Z"
     },
     {
       "userId": 2,
       "id": "17",
       "title": "fugit voluptas sed molestias voluptatem provident",
-      "body": "eos voluptas et aut odit natus earum\naspernatur fuga molestiae ullam\ndeserunt ratione qui eos\nqui nihil ratione nemo velit ut aut id quo"
+      "body": "eos voluptas et aut odit natus earum\naspernatur fuga molestiae ullam\ndeserunt ratione qui eos\nqui nihil ratione nemo velit ut aut id quo",
+      "reactions": {
+        "thumbsUp": 1,
+        "wow": 2,
+        "heart": 2,
+        "rocket": 4,
+        "coffee": 5
+      }
     },
     {
       "userId": 2,
